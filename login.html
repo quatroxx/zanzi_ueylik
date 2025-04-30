@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZANZI Lookbook</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="page-transition">
+
+  <header>
+    <div class="header-left">
+      <div class="hamburger" onclick="toggleMenu()">
+  <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect class="line1" y="0" width="28" height="2" fill="black"/>
+    <rect class="line2" y="8" width="28" height="2" fill="black"/>
+    <rect class="line3" y="16" width="28" height="2" fill="black"/>
+  </svg>
+</div>
+
+
+
+      <div class="logo">ZANZI</div>
+    </div>
+  </header>
+
+  <nav id="mobileMenu" class="mobile-menu">
+  <div class="close-btn" onclick="toggleMenu()">
+  <svg viewBox="0 0 24 24" width="36" height="36">
+    <line x1="4" y1="4" x2="20" y2="20" stroke="black" stroke-width="2"/>
+    <line x1="20" y1="4" x2="4" y2="20" stroke="black" stroke-width="2"/>
+  </svg>
+</div>
+
+
+    <ul>
+      <li><a href="#">Lookbook</a></li>
+      <li><a href="#">Runway</a></li>
+      <li><a href="#">Stories</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="overlay">
+        <h1>Spring/Summer 2025</h1>
+        <p>Minimal shapes. Modern silhouettes.</p>
+      </div>
+    </section>
+
+   <section class="lookbook">
+  <div class="item fade-in"><img src="images/dddfasdfas.jpg" alt="Cream Fold" loading="lazy" onclick="openLightbox(this.src)"><h2>Cream Fold</h2></div>
+  <div class="item fade-in"><img src="images/ewrweggew.jpg" alt="Espresso Line" loading="lazy" onclick="openLightbox(this.src)"><h2>Espresso Line</h2></div>
+  <div class="item fade-in"><img src="images/fafasfa.jpg" alt="Floral Shadow" loading="lazy" onclick="openLightbox(this.src)"><h2>Floral Shadow</h2></div>
+  <div class="item fade-in"><img src="images/fewfewfwefe.jpg" alt="Floral Shadow Full" loading="lazy" onclick="openLightbox(this.src)"><h2>Floral Shadow Full</h2></div>
+  <div class="item fade-in"><img src="images/fwefwe.jpg" alt="Urban Edge" loading="lazy" onclick="openLightbox(this.src)"><h2>Urban Edge</h2></div>
+  <div class="item fade-in"><img src="images/fwefwefwf.jpg" alt="Chalk Blend" loading="lazy" onclick="openLightbox(this.src)"><h2>Chalk Blend</h2></div>
+  <div class="item fade-in"><img src="images/gwe5.jpg" alt="Soft Curve" loading="lazy" onclick="openLightbox(this.src)"><h2>Soft Curve</h2></div>
+  <div class="item fade-in"><img src="images/rewfew.jpg" alt="Linen Structure" loading="lazy" onclick="openLightbox(this.src)"><h2>Linen Structure</h2></div>
+  <div class="item fade-in"><img src="images/werqwerwq.jpg" alt="Back Bloom" loading="lazy" onclick="openLightbox(this.src)"><h2>Back Bloom</h2></div>
+  <div class="item fade-in"><img src="images/wfewfwe.jpg" alt="Mauve Cross" loading="lazy" onclick="openLightbox(this.src)"><h2>Mauve Cross</h2></div>
+</section>
+
+
+    <section class="about">
+      <h2>About ZANZI</h2>
+      <p>ZANZI Lookbook SS25 – a curated edit of silhouettes designed to move with presence.</p>
+    </section>
+  </main>
+<div id="lightbox" class="lightbox">
+  <span class="close-lightbox" onclick="closeLightbox()">×</span>
+  <img id="lightbox-img" src="" alt="Expanded Look">
+</div>
+
+  <footer>
+    <p>© 2025 ZANZI — Instagram | Contact</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
