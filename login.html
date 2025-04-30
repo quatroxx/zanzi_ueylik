@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giriş / Kayıt | ZANZI</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZANZI Giriş Yap</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       font-family: 'Inter', sans-serif;
       background: #fff;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
@@ -47,6 +46,13 @@
       cursor: pointer;
       text-transform: uppercase;
     }
+    p, a {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 10px;
+      color: #555;
+      display: block;
+    }
     #authMessage {
       margin-top: 12px;
       text-align: center;
@@ -56,16 +62,55 @@
   </style>
 </head>
 <body>
+
   <div class="auth-box">
-    <h1>GİRİŞ</h1>
+    <h1>ZANZI Giriş Yap</h1>
     <form id="authForm">
       <input type="email" id="email" placeholder="E-posta" required />
       <input type="password" id="password" placeholder="Şifre" required />
       <button type="submit">Giriş Yap / Kayıt Ol</button>
     </form>
+    <p><a href="register.html">Hesabınız yok mu? Kayıt olun</a></p>
     <p id="authMessage"></p>
   </div>
 
-  <script src="auth.js"></script>
+  <!-- 🔗 GÖMÜLÜ JS -->
+  <script>
+    document.getElementById("authForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const message = document.getElementById("authMessage");
+
+      if (!email || !password) {
+        message.textContent = "Lütfen e-posta ve şifre giriniz.";
+        return;
+      }
+
+      const key = "user_" + email;
+      const stored = localStorage.getItem(key);
+
+      if (stored) {
+        const user = JSON.parse(stored);
+        if (user.password === password) {
+          localStorage.setItem("currentUser", email);
+          message.style.color = "green";
+          message.textContent = "Giriş başarılı. Yönlendiriliyorsunuz...";
+          setTimeout(() => window.location.href = "index.html", 1000);
+        } else {
+          message.textContent = "Şifre yanlış.";
+        }
+      } else {
+        const newUser = { email, password };
+        localStorage.setItem(key, JSON.stringify(newUser));
+        localStorage.setItem("currentUser", email);
+        message.style.color = "green";
+        message.textContent = "Kayıt başarılı. Giriş yapılıyor...";
+        setTimeout(() => window.location.href = "index.html", 1000);
+      }
+    });
+  </script>
+
 </body>
 </html>
