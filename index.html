@@ -11,6 +11,8 @@
 
 <header>
   <div class="header-left">
+  <div class="logo">ZANZI</div>
+  <div id="userInfo" class="user-info"></div>
     <div class="hamburger" onclick="toggleMenu()">
       <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect class="line1" y="0" width="28" height="2" fill="black"/>
@@ -242,3 +244,16 @@
 
 </body>
 </html>
+<script>
+  const currentUser = localStorage.getItem("currentUser");
+  const userInfo = document.getElementById("userInfo");
+
+  if (currentUser && userInfo) {
+    userInfo.innerHTML = `👋 Merhaba, ${currentUser} <button onclick="logout()">Çıkış</button>`;
+  }
+
+  function logout() {
+    localStorage.removeItem("currentUser");
+    location.reload();
+  }
+</script>
